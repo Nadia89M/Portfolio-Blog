@@ -1,24 +1,50 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Portfolio Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Blog</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= login_helper "nav-link"%>
+    <%= render 'shared/blog_nav' %>
 
-    <%= yield %>
+    <!-- start of blog header -->
+    <div class="blog-header">
+      <div class="container">
+        <h1 class="blog-title">My Blog</h1>
+        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+        <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin) %>
+      </div>
+    </div>
+    <!-- end of blog header -->
 
-    <%= render "shared/nav", location: 'bottom' %>
+    <div class="container">
 
-    <%= source_helper("blog") %>
+      <div class="row">
+
+        <%= yield %>
+
+        <%= render 'shared/blog_sidebar' %>
+      </div>
+
+        <!-- start of footer -->
+        <footer class="blog-footer">
+          <%= render "shared/application_footer" %>
+          <p>
+            <a href="#">Back to top</a>
+          </p>
+        </footer>
+        <!-- end of footer -->
+
+        <%= source_helper("blog") %>
+    </div>
   </body>
 </html>
