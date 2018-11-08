@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My Portfolio Website</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Portfolio</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<body>
+  <%= render 'shared/portfolio_nav' %>
 
-    <%= render "shared/nav", location: 'top' %>
+  <main role="main">
 
-    <%= login_helper %>
-
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Portfolio</h1>
+        <p class="lead text-muted">I have a diverse range of digital experience ranging from the delivery of apps and websites to email campaigns and digital membership schemes. You can view a selection of the projects I’ve worked on below.</p>
+        <p>
+          <%= link_to 'About Me', about_me_path, class: 'btn btn-primary' %>
+          <%= link_to 'My Blog', blogs_path, class: 'btn btn-secondary' %>
+        </p>
+      </div>
+    </section>
     <%= yield %>
+  </main>
 
-    <%= source_helper("application") %>
-    <%= render "shared/application_footer" %>
-  </body>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <%= link_to "View All Portfolio Items | ", portfolios_path %>
+        <a href="#">Back to top</a>
+      </p>
+      <%= render "shared/application_footer" %>
+    </div>
+  </footer>
+
+  <%= source_helper("application") %>
+</body>
 </html>
