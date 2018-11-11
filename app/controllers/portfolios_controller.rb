@@ -1,3 +1,4 @@
+
 class PortfoliosController < ApplicationController
   before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
   layout 'portfolio'
@@ -21,7 +22,6 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio_item = Portfolio.new
-    3.times { @portfolio_item.technologies.build }
   end
 
   def create
@@ -58,7 +58,7 @@ class PortfoliosController < ApplicationController
 
     # Redirect
     respond_to do |format|
-      format.html { redirect_to portfolios_path, notice: 'Record was removed.' }
+      format.html { redirect_to portfolios_url, notice: 'Record was removed.' }
     end
   end
 
@@ -68,7 +68,9 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title,
                                       :subtitle,
                                       :body,
-                                      technologies_attributes: [:name]
+                                      :main_image,
+                                      :thumb_image,
+                                      technologies_attributes: [:id, :name, :_destroy]
                                      )
   end
 

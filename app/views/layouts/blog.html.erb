@@ -19,6 +19,8 @@
     <!-- start of blog header -->
     <div class="blog-header">
       <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <h1 class="blog-title">My Blog</h1>
         <p class="lead blog-description">Stay tuned new post coming soon!</p>
         <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin) %>
