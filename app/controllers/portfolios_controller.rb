@@ -69,7 +69,8 @@ class PortfoliosController < ApplicationController
                                       :subtitle,
                                       :body,
                                       :main_image,
-                                      :thumb_image
+                                      :thumb_image,
+                                      :image_url
                                     )
   end
 
