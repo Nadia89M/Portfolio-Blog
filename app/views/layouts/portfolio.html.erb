@@ -22,6 +22,7 @@
         <p>
           <%= link_to 'About Me', about_path, class: 'btn btn-primary' %>
           <%= link_to 'My Blog', blogs_path, class: 'btn btn-secondary' %>
+          <%= link_to 'Upload a new portfolio item', new_portfolio_path, class: 'btn btn-primary' if logged_in?(:site_admin) %>
         </p>
       </div>
     </section>
