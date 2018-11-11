@@ -1,5 +1,4 @@
 class Portfolio < ApplicationRecord
-  has_many :technologies, dependent: :destroy
 
   validates_presence_of :title, :body
 
