@@ -70,7 +70,8 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       :main_image,
                                       :thumb_image,
-                                      :image_url
+                                      :image_url,
+                                      :link
                                     )
   end
 

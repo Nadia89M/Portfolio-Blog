@@ -13,9 +13,8 @@
 </head>
 
 <body class="text-center">
-  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <div class="container d-flex h-100 p-3 mx-auto flex-column">
+    <%= render "shared/application_nav" %>
 
     <%= video_tag(
       'London.mp4',
@@ -26,7 +25,6 @@
       poster: 'background.jpg'
      )
      %>
-    <%= render "shared/application_nav" %>
 
     <%= yield %>
 

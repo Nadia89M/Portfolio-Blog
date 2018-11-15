@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def about
-    @skills = Skill.all
+    @skills = Skill.all.order("percent DESC")
   end
 
   def contact
